@@ -25,7 +25,7 @@ export const FormAutorization = (props) => {
    return (
       <View style={{ ...styles.wrapper, ...props.style }}>
          <BoxShadow setting={shadowOpt}>
-            <View style={{ ...styles.content, ...props.styles }}>
+            <View style={styles.content}>
                {props.children}
             </View>
          </BoxShadow>
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
    },
    content: {
       backgroundColor: 'rgba(32, 32, 32, 0.6)',
-      height: '100%',
       width: '100%',
       maxWidth: 350,
-      maxHeight: 369,
-      borderRadius: 20
+      minHeight: 369,
+      borderRadius: 20,
+      paddingBottom: 50
    }
 })
