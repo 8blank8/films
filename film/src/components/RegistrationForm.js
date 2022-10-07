@@ -14,7 +14,7 @@ export const RegistrationForm = () => {
    const onPressContinue = () => {
       setContinues(true);
    }
-   console.log(continues)
+
    return (
       <View>
          {continues ? <TwoModal /> : <OneModal onPressContinue={onPressContinue} />}

@@ -8,11 +8,11 @@ import { BoxShadow } from 'react-native-shadow';
 export const FormAutorization = (props) => {
 
    const shadowOpt = {
-      width: 350,
-      height: 369,
+      width: props.width,
+      height: props.height,
       color: THEME.MAIN_COLOR,
-      border: 170,
-      radius: 100,
+      border: props.border,
+      radius: props.radius,
       opacity: 1,
       x: 0,
       y: 0,
@@ -23,9 +23,9 @@ export const FormAutorization = (props) => {
    }
 
    return (
-      <View style={{ ...styles.wrapper, ...props.style }}>
+      <View style={styles.wrapper}>
          <BoxShadow setting={shadowOpt}>
-            <View style={styles.content}>
+            <View style={{ ...styles.content, ...props.style }}>
                {props.children}
             </View>
          </BoxShadow>
@@ -35,7 +35,8 @@ export const FormAutorization = (props) => {
 
 const styles = StyleSheet.create({
    wrapper: {
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingTop: 50
    },
    content: {
       backgroundColor: 'rgba(32, 32, 32, 0.6)',
@@ -43,6 +44,5 @@ const styles = StyleSheet.create({
       maxWidth: 350,
       minHeight: 369,
       borderRadius: 20,
-      paddingBottom: 50
    }
 })
