@@ -5,7 +5,7 @@ import { THEME } from '../theme/theme';
 
 export const Button = (props) => {
    return (
-      <View style={{ ...styles.wrapper, ...props.style }}>
+      <View style={props.active ? { ...styles.wrapper, ...props.style } : { ...styles.wrapper, borderColor: 'rgba(255, 255, 255, 0.2)', borderWidth: 1, ...props.style }}>
          <Text style={{ ...styles.text, ...props.styleText }}>{props.children}</Text>
       </View>
    )

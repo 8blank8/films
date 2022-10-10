@@ -12,28 +12,29 @@ import { useState } from 'react';
 export const AutorizationScreen = () => {
 
    const [isSignIn, setIsSignIn] = useState(true);
+   const [isReg, setIsReg] = useState(false);
+
+   const activeSignIn = () => {
+      setIsSignIn(true);
+      setIsReg(false);
+   }
+
+   const activeReg = () => {
+      setIsSignIn(false);
+      setIsReg(true);
+   }
 
    const contentModal = isSignIn ? <AutorizationForm /> : <RegistrationForm />;
-
-   const buttonSign = {
-      borderWidth: isSignIn ? 2 : 1,
-      borderColor: isSignIn ? 'rgba(74, 21, 99, 1)' : 'rgba(255, 255, 255, 0.2)'
-   }
-
-   const buttonReg = {
-      borderWidth: !isSignIn ? 2 : 1,
-      borderColor: !isSignIn ? 'rgba(74, 21, 99, 1)' : 'rgba(255, 255, 255, 0.2)'
-   }
 
    return (
       <View style={styles.wrapper}>
          <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
             <View style={styles.buttons}>
-               <TouchableOpacity style={styles.touchableOpacity} onPress={() => setIsSignIn(true)}>
-                  <Button style={buttonSign} >Вход</Button>
+               <TouchableOpacity style={styles.touchableOpacity} onPress={() => activeSignIn()}>
+                  <Button active={isSignIn} >Вход</Button>
                </TouchableOpacity>
-               <TouchableOpacity style={styles.touchableOpacity} onPress={() => setIsSignIn(false)}>
-                  <Button style={buttonReg}>Регистрация</Button>
+               <TouchableOpacity style={styles.touchableOpacity} onPress={() => activeReg()}>
+                  <Button active={isReg}>Регистрация</Button>
                </TouchableOpacity>
             </View>
             <View>

@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
       backgroundColor: THEME.MAIN_COLOR,
       maxWidth: 310,
       height: 60,
-      marginTop: 40
+      marginTop: 40,
+      borderWidth: 0
    }
 })
