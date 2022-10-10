@@ -39,9 +39,9 @@ export const ModalFilterFilms = () => {
       }
    }
 
-   const contentButtonCategory = categoryArr.map(item => {
+   const contentButtonCategory = categoryArr.map((item, i) => {
       return (
-         <TouchableOpacity style={styles.button} onPress={() => {
+         <TouchableOpacity key={i} style={styles.button} onPress={() => {
             setCategory(item);
             setAtiveButton(category);
          }}>
@@ -63,9 +63,9 @@ export const ModalFilterFilms = () => {
       }
    }
 
-   const contentButtonSort = sortArr.map(item => {
+   const contentButtonSort = sortArr.map((item, i) => {
       return (
-         <TouchableOpacity style={styles.button} onPress={() => {
+         <TouchableOpacity key={i} style={styles.button} onPress={() => {
             setSort(item);
             setActiveButtonSort(category);
          }}>
@@ -86,7 +86,7 @@ export const ModalFilterFilms = () => {
    const setDataModal = (arr, setText, setVisibleModal, dispatch) => {
       const newArr = arr.map((item, i) => {
          return (
-            <TouchableOpacity onPress={() => setActiveSelect(item, setText, setVisibleModal)} >
+            <TouchableOpacity key={i} onPress={() => setActiveSelect(item, setText, setVisibleModal)} >
                <ModalSelectButton text={item} notLine={i + 1 === arr.length ? true : false} />
             </TouchableOpacity>
          )
