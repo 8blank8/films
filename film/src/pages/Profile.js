@@ -10,10 +10,10 @@ import { HeaderPage } from '../components/HeaderPage';
 export const Profile = () => {
    return (
       <View style={styles.wrapper}>
-         <View style={styles.wrapperScroll}>
+         <View style={styles.wrapperHeader}>
             <HeaderPage text='Профиль' />
          </View>
-         <ScrollView>
+         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapperColumn}>
                <Image style={styles.image} resizeMode='stretch' source={account} />
                <Text style={styles.addImage}>Добавить новое фото</Text>
@@ -45,16 +45,14 @@ const styles = StyleSheet.create({
       flex: 1,
    },
 
-   wrapperScroll: {
-      paddingTop: 30,
-      paddingHorizontal: 20
+   wrapperHeader: {
+      paddingTop: THEME.WRAPPER_PADDING_TOP,
+      paddingHorizontal: THEME.WRAPPER_PADDING_HORIZONTAL
    },
 
    titleProfile: {
       color: '#fff',
       fontSize: 26,
-      paddingLeft: 20,
-      paddingTop: 30
    },
 
    wrapperColumn: {

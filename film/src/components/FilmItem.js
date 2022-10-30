@@ -1,17 +1,19 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import imageFilm from '../assets/imageFilm.png';
 
 
 export const FilmItem = () => {
    return (
-      <View style={styles.film}>
-         <Image source={imageFilm} style={styles.filmImage} />
-         <Text style={styles.filmTitle}>Дом дракона</Text>
-         <Text style={styles.filmGenre}>фэнтези</Text>
-      </View>
+      <TouchableOpacity>
+         <View style={styles.film}>
+            <Image source={imageFilm} style={styles.filmImage} />
+            <Text style={styles.filmTitle}>Дом дракона</Text>
+            <Text style={styles.filmGenre}>фэнтези</Text>
+         </View>
+      </TouchableOpacity>
    )
 }
 

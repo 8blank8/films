@@ -14,6 +14,7 @@ export const ModalSelect = ({ setVisibleModal, visibleModal, content }) => {
             {content}
          </View>
       </Modal>
+
    )
 }
 

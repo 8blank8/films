@@ -17,19 +17,21 @@ export const Slider = ({ text, minNum, maxNum }) => {
             <Text style={styles.text}>{text}</Text>
             <Text style={styles.textSelect}>от {minValue} до {maxValue}</Text>
          </View>
-         <MultiSlider
-            min={minNum}
-            max={maxNum}
-            step={1}
-            sliderLength={Dimensions.get('window').width - 45}
-            values={[minNum, maxNum]}
-            trackStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
-            selectedStyle={{ backgroundColor: THEME.MAIN_COLOR }}
-            markerStyle={{ backgroundColor: THEME.MAIN_COLOR }}
-            onValuesChange={(values) => {
-               setMinValue(values[0]);
-               setMaxValue(values[1]);
-            }} />
+         <View style={styles.wrapperSlider}>
+            <MultiSlider
+               min={minNum}
+               max={maxNum}
+               step={1}
+               sliderLength={Dimensions.get('window').width - 60}
+               values={[minNum, maxNum]}
+               trackStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+               selectedStyle={{ backgroundColor: THEME.MAIN_COLOR }}
+               markerStyle={{ backgroundColor: THEME.MAIN_COLOR }}
+               onValuesChange={(values) => {
+                  setMinValue(values[0]);
+                  setMaxValue(values[1]);
+               }} />
+         </View>
       </View>
    )
 }
@@ -51,5 +53,9 @@ const styles = StyleSheet.create({
 
    textSelect: {
       color: 'rgba(255, 255, 255, 0.5)'
+   },
+
+   wrapperSlider: {
+      alignItems: 'center'
    }
 })

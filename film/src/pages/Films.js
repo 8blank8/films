@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
       backgroundColor: THEME.BACKGROUND_COLOR,
       flexDirection: 'column',
       flex: 1,
-      paddingTop: 20,
-      paddingHorizontal: 20
+      paddingTop: THEME.WRAPPER_PADDING_TOP,
+      paddingHorizontal: THEME.WRAPPER_PADDING_HORIZONTAL
    },
 
 })

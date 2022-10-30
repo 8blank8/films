@@ -8,6 +8,7 @@ import { FilmItem } from '../components/FilmItem';
 
 import { Input } from '../ui/Input';
 import { FilmList } from '../ui/FilmList';
+import { THEME } from '../theme/theme';
 
 export const SearchScreen = () => {
    return (
@@ -33,8 +34,8 @@ export const SearchScreen = () => {
 
 const styles = StyleSheet.create({
    wrapper: {
-      paddingHorizontal: 20,
-      paddingTop: 30
+      paddingHorizontal: THEME.WRAPPER_PADDING_HORIZONTAL,
+      paddingTop: THEME.WRAPPER_PADDING_TOP
    },
 
    input: {

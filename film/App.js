@@ -16,11 +16,14 @@ import { FilmScreen } from './src/pages/FilmScreen';
 import { SearchScreen } from './src/pages/SearchScreen';
 import { MyFilms } from './src/pages/MyFilms';
 
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { THEME } from './src/theme/theme';
 
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
 const App = () => {
 
    const MyTheme = {
