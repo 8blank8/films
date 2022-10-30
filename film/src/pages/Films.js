@@ -12,8 +12,8 @@ export const Films = () => {
 
    const [visibleModal, setVisibleModal] = useState(false);
 
-   const toggleModal = () => {
-      setVisibleModal(!visibleModal);
+   const toggleModal = (value) => {
+      setVisibleModal(value);
    }
 
    return (

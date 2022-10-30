@@ -9,8 +9,9 @@ import { THEME } from "../theme/theme";
 import { useState } from "react";
 
 import { ModalSelect } from "./ModalSelect";
+import { Slider } from './Slider/Slider';
 
-export const ModalFilterFilms = () => {
+export const ModalFilterFilms = ({ visibleModal, toggleModal }) => {
 
    const [visibleModalGenre, setVisibleModalGenre] = useState(false);
    const [visibleModalCountry, setVisibleModalCountry] = useState(false);
@@ -98,8 +99,16 @@ export const ModalFilterFilms = () => {
    const modalGenre = setDataModal(genresArr, setGenre, setVisibleModalGenre);
    const modalCountry = setDataModal(countryArr, setCountry, setVisibleModalCountry);
 
+   // получение текущего года для фильтра по годам
+
+   const dateYear = new Date().getFullYear();
+
    return (
-      <Modal isVisible={true} backdropOpacity={0} style={styles.modal}>
+      <Modal
+         isVisible={visibleModal}
+         backdropOpacity={0}
+         style={styles.modal}
+      >
          <View style={styles.wrapperModal}>
             <View style={styles.buttonsModal}>
                {contentButtonCategory}
@@ -113,11 +122,18 @@ export const ModalFilterFilms = () => {
                </TouchableOpacity>
             </View>
             <View>
+               <Slider minNum={1970} maxNum={dateYear} text='Года' />
+            </View>
+            <View>
+               <Slider minNum={1} maxNum={8} text='Рейтинг' />
+            </View>
+            <View>
                <Text style={styles.text}>Сортировать по</Text>
                <View style={styles.buttonsModal}>
                   {contentButtonSort}
                </View>
             </View>
+
          </View>
          <ModalSelect setVisibleModal={setVisibleModalGenre} visibleModal={visibleModalGenre} content={modalGenre} />
          <ModalSelect setVisibleModal={setVisibleModalCountry} visibleModal={visibleModalCountry} content={modalCountry} />
@@ -163,8 +179,8 @@ const styles = StyleSheet.create({
    text: {
       fontSize: 16,
       color: '#fff',
-      marginTop: 40,
-      marginBottom: 15
+      marginBottom: 15,
+      marginTop: 20
    }
 
 })
