@@ -5,12 +5,15 @@ import { THEME } from '../theme/theme';
 import account from '../assets/account.png';
 import { FormAutorization } from '../ui/FormAutorization';
 import { Button } from '../ui/Button';
+import { HeaderPage } from '../components/HeaderPage';
 
 export const Profile = () => {
    return (
       <View style={styles.wrapper}>
+         <View style={styles.wrapperScroll}>
+            <HeaderPage text='Профиль' />
+         </View>
          <ScrollView>
-            <Text style={styles.titleProfile}>Профиль</Text>
             <View style={styles.wrapperColumn}>
                <Image style={styles.image} resizeMode='stretch' source={account} />
                <Text style={styles.addImage}>Добавить новое фото</Text>
@@ -40,6 +43,11 @@ const styles = StyleSheet.create({
       backgroundColor: THEME.BACKGROUND_COLOR,
       flexDirection: 'column',
       flex: 1,
+   },
+
+   wrapperScroll: {
+      paddingTop: 30,
+      paddingHorizontal: 20
    },
 
    titleProfile: {

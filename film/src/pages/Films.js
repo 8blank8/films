@@ -2,9 +2,11 @@
 /* eslint-disable prettier/prettier */
 import { View, StyleSheet, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
+
 import { FilmItem } from '../components/FilmItem';
 import { ModalFilterFilms } from '../components/ModalFilterFilms';
-import filterImage from '../assets/filters.png';
+import { HeaderPage } from '../components/HeaderPage';
+
 import { THEME } from '../theme/theme';
 import { useState } from 'react';
 
@@ -12,18 +14,13 @@ export const Films = () => {
 
    const [visibleModal, setVisibleModal] = useState(false);
 
-   const toggleModal = (value) => {
-      setVisibleModal(value);
+   const toggleModal = () => {
+      setVisibleModal(!visibleModal);
    }
 
    return (
       <View style={styles.wrapper}>
-         <View style={styles.wrapperTitle}>
-            <Text style={styles.title}>Фильмы</Text>
-            <TouchableOpacity onPress={toggleModal}>
-               <Image source={filterImage} />
-            </TouchableOpacity>
-         </View>
+         <HeaderPage toggleModal={toggleModal} filters={true} text='Фильмы' />
          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.filmsTodo}>
                <FilmItem />
@@ -49,17 +46,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20
    },
 
-   wrapperTitle: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingBottom: 20
-   },
 
-   title: {
-      color: '#FFF',
-      fontSize: 26
-   },
 
    filmsTodo: {
       flexDirection: 'row',

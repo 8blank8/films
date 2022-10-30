@@ -1,15 +1,17 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import { Button } from "../ui/Button";
 import { Select } from "../ui/Select";
 import { ModalSelectButton } from "../ui/ModalSelectButton";
 import Modal from 'react-native-modal';
 import { THEME } from "../theme/theme";
 import { useState } from "react";
+import filtersActive from '../assets/filtersAcive.png';
 
 import { ModalSelect } from "./ModalSelect";
 import { Slider } from './Slider/Slider';
+import { HeaderPage } from "./HeaderPage";
 
 export const ModalFilterFilms = ({ visibleModal, toggleModal }) => {
 
@@ -109,6 +111,7 @@ export const ModalFilterFilms = ({ visibleModal, toggleModal }) => {
          backdropOpacity={0}
          style={styles.modal}
       >
+         <HeaderPage toggleModal={toggleModal} filters={true} text='Фильмы ' />
          <View style={styles.wrapperModal}>
             <View style={styles.buttonsModal}>
                {contentButtonCategory}
@@ -133,7 +136,13 @@ export const ModalFilterFilms = ({ visibleModal, toggleModal }) => {
                   {contentButtonSort}
                </View>
             </View>
-
+            <View style={styles.buttonSelectedWrapper}>
+               <TouchableOpacity style={styles.touchebleOpacity}>
+                  <Button style={styles.buttonSelected}>
+                     <Text stylText={{ fontSize: 16 }}>Применить фильтры</Text>
+                  </Button>
+               </TouchableOpacity>
+            </View>
          </View>
          <ModalSelect setVisibleModal={setVisibleModalGenre} visibleModal={visibleModalGenre} content={modalGenre} />
          <ModalSelect setVisibleModal={setVisibleModalCountry} visibleModal={visibleModalCountry} content={modalCountry} />
@@ -181,6 +190,23 @@ const styles = StyleSheet.create({
       color: '#fff',
       marginBottom: 15,
       marginTop: 20
-   }
+   },
 
+   buttonSelectedWrapper: {
+      flex: 1,
+      justifyContent: "flex-end",
+      alignItems: "center",
+      marginBottom: 38
+   },
+
+   buttonSelected: {
+      borderWidth: 0,
+      backgroundColor: THEME.MAIN_COLOR,
+      maxWidth: 214,
+      height: 60,
+   },
+
+   touchebleOpacity: {
+      width: 214,
+   }
 })
