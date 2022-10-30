@@ -10,6 +10,8 @@ import { HeaderPage } from '../components/HeaderPage';
 import { THEME } from '../theme/theme';
 import { useState } from 'react';
 
+import { FilmList } from '../ui/FilmList';
+
 export const Films = () => {
 
    const [visibleModal, setVisibleModal] = useState(false);
@@ -21,17 +23,15 @@ export const Films = () => {
    return (
       <View style={styles.wrapper}>
          <HeaderPage toggleModal={toggleModal} filters={true} text='Фильмы' />
-         <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.filmsTodo}>
-               <FilmItem />
-               <FilmItem />
-               <FilmItem />
-               <FilmItem />
-               <FilmItem />
-               <FilmItem />
-               <FilmItem />
-            </View>
-         </ScrollView>
+         <FilmList>
+            <FilmItem />
+            <FilmItem />
+            <FilmItem />
+            <FilmItem />
+            <FilmItem />
+            <FilmItem />
+            <FilmItem />
+         </FilmList>
          <ModalFilterFilms visibleModal={visibleModal} toggleModal={toggleModal} />
       </View>
    )
@@ -45,15 +45,5 @@ const styles = StyleSheet.create({
       paddingTop: 20,
       paddingHorizontal: 20
    },
-
-
-
-   filmsTodo: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      marginTop: 20
-   },
-
 
 })

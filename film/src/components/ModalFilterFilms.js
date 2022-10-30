@@ -9,6 +9,7 @@ import { THEME } from "../theme/theme";
 import { useState } from "react";
 import filtersActive from '../assets/filtersAcive.png';
 
+
 import { ModalSelect } from "./ModalSelect";
 import { Slider } from './Slider/Slider';
 import { HeaderPage } from "./HeaderPage";
