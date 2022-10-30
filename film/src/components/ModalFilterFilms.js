@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text, Image, Dimensions } from "react-native";
 import { Button } from "../ui/Button";
 import { Select } from "../ui/Select";
 import { ModalSelectButton } from "../ui/ModalSelectButton";
@@ -156,11 +156,15 @@ export const ModalFilterFilms = ({ visibleModal, toggleModal }) => {
 const styles = StyleSheet.create({
    modal: {
       backgroundColor: THEME.BACKGROUND_COLOR,
+      width: '100%',
+      marginHorizontal: 0,
+      paddingHorizontal: 20,
+      marginBottom: 0
    },
 
    wrapperModal: {
       flexDirection: 'column',
-      flex: 1
+      flex: 1,
    },
 
    buttonsModal: {
