@@ -10,13 +10,19 @@ import { useState } from 'react';
 
 export const Films = () => {
 
+   const [visibleModal, setVisibleModal] = useState(false);
 
+   const toggleModal = () => {
+      setVisibleModal(!visibleModal);
+   }
 
    return (
       <View style={styles.wrapper}>
          <View style={styles.wrapperTitle}>
             <Text style={styles.title}>Фильмы</Text>
-            <Image source={filterImage} />
+            <TouchableOpacity onPress={toggleModal}>
+               <Image source={filterImage} />
+            </TouchableOpacity>
          </View>
          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.filmsTodo}>
@@ -29,7 +35,7 @@ export const Films = () => {
                <FilmItem />
             </View>
          </ScrollView>
-         <ModalFilterFilms />
+         <ModalFilterFilms visibleModal={visibleModal} toggleModal={toggleModal} />
       </View>
    )
 }
