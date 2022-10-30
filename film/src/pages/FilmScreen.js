@@ -11,12 +11,12 @@ import similarImage from '../assets/similar.png';
 import { Button } from '../ui/Button';
 import { THEME } from '../theme/theme';
 
-export const FilmScreen = () => {
+export const FilmScreen = ({ navigation }) => {
    return (
       <View style={styles.wrapper}>
          <ScrollView>
             <View style={styles.buttonTop}>
-               <TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Image source={arrowImage} />
                </TouchableOpacity>
                <TouchableOpacity>

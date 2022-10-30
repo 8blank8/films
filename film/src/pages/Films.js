@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 import { FilmList } from '../ui/FilmList';
 
-export const Films = () => {
+export const Films = ({ navigation }) => {
 
    const [visibleModal, setVisibleModal] = useState(false);
 
@@ -24,7 +24,7 @@ export const Films = () => {
       <View style={styles.wrapper}>
          <HeaderPage toggleModal={toggleModal} filters={true} text='Фильмы' />
          <FilmList>
-            <FilmItem />
+            <FilmItem navigation={navigation} />
             <FilmItem />
             <FilmItem />
             <FilmItem />

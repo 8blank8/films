@@ -5,9 +5,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import imageFilm from '../assets/imageFilm.png';
 
 
-export const FilmItem = () => {
+export const FilmItem = ({ navigation }) => {
    return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('filmScreen')}>
          <View style={styles.film}>
             <Image source={imageFilm} style={styles.filmImage} />
             <Text style={styles.filmTitle}>Дом дракона</Text>

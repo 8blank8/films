@@ -21,7 +21,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { THEME } from './src/theme/theme';
 
-const Stack = createStackNavigator();
+const FilmsStack = createStackNavigator();
+
+const FilmsStackScreen = () => {
+   return (
+      <FilmsStack.Navigator>
+         <FilmsStack.Screen options={{ headerShown: false }} name='films' component={Films} />
+         <FilmsStack.Screen options={{ headerShown: false }} name='filmScreen' component={FilmScreen} />
+      </FilmsStack.Navigator>
+   )
+}
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -44,8 +54,6 @@ const App = () => {
             <Tab.Navigator
                screenOptions={({ route }) => ({
                   tabBarIcon: ({ color }) => {
-                     let iconName;
-
                      if (route.name === 'Фильмы') {
                         return <IconFilm name='film' size={20} color={color} />
                      } else if (route.name === 'Профиль') {
@@ -67,7 +75,7 @@ const App = () => {
                   tabBarInactiveTintColor: 'gray',
                })}>
                {/* <Tab.Screen options={{ headerShown: false }} name='Aut' component={AutorizationScreen} /> */}
-               <Tab.Screen options={{ headerShown: false }} name='Фильмы' component={Films} />
+               <Tab.Screen options={{ headerShown: false }} name='Фильмы' component={FilmsStackScreen} />
                <Tab.Screen options={{ headerShown: false }} name='Моё' component={MyFilms} />
                <Tab.Screen options={{ headerShown: false }} name='Поиск' component={SearchScreen} />
                {/* <Tab.Screen options={{ headerShown: false }} name='FilmScreen' component={FilmScreen} /> */}
