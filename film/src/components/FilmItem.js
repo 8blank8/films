@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 
 import imageFilm from '../assets/imageFilm.png';
 import { TextMedium } from '../ui/Text';
@@ -20,7 +20,7 @@ export const FilmItem = ({ navigation }) => {
 
 const styles = StyleSheet.create({
    film: {
-      maxWidth: 165,
+      width: '42.3%',
       maxHeight: 259,
       marginBottom: 20
    },
@@ -31,11 +31,15 @@ const styles = StyleSheet.create({
 
    filmTitle: {
       fontSize: 16,
-      paddingTop: 5
+      paddingTop: 5,
+      width: '230%',
+
+
    },
 
    filmGenre: {
       fontSize: 14,
-      opacity: 0.5
+      opacity: 0.5,
+      width: '230%',
    }
 })

@@ -18,8 +18,7 @@ export const ActorItem = (props) => {
 const styles = StyleSheet.create({
    actorItem: {
       flexDirection: 'row',
-      maxWidth: 165,
-      width: '100%',
+      width: '42.3%',
       marginBottom: 10,
       borderRadius: 20
    },
