@@ -6,6 +6,7 @@ import account from '../assets/account.png';
 import { FormAutorization } from '../ui/FormAutorization';
 import { Button } from '../ui/Button';
 import { HeaderPage } from '../components/HeaderPage';
+import { TextMedium, TextSemiBold, TextRegular } from '../ui/Text';
 
 export const Profile = () => {
    return (
@@ -16,22 +17,24 @@ export const Profile = () => {
          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapperColumn}>
                <Image style={styles.image} resizeMode='stretch' source={account} />
-               <Text style={styles.addImage}>Добавить новое фото</Text>
-               <Text style={styles.textFullname}>Селиванова Анастасия</Text>
-               <Text style={styles.email}>echelontwoles@mail.ru</Text>
+               <TextMedium style={styles.addImage}>Добавить новое фото</TextMedium>
+               <TextSemiBold style={styles.textFullname}>Селиванова Анастасия</TextSemiBold>
+               <TextRegular style={styles.email}>echelontwoles@mail.ru</TextRegular>
             </View>
             <FormAutorization style={styles.info} width={350} height={293} border={20} radius={20}>
                <View style={styles.infoColumn}>
-                  <Text style={styles.infoNumber}>24</Text>
-                  <Text style={styles.infoText}>фильмов просмотрено</Text>
+                  <TextSemiBold style={styles.infoNumber}>24</TextSemiBold>
+                  <TextRegular style={styles.infoText}>фильмов просмотрено</TextRegular>
                </View>
                <View style={styles.infoColumnTwo}>
-                  <Text style={styles.infoNumber}>126</Text>
-                  <Text style={styles.infoText}>фильмов посмотреть</Text>
+                  <TextSemiBold style={styles.infoNumber}>126</TextSemiBold>
+                  <TextRegular style={styles.infoText}>фильмов посмотреть</TextRegular>
                </View>
             </FormAutorization>
             <TouchableOpacity>
-               <Button style={styles.button}>Выйти из аккаунта</Button>
+               <Button style={styles.button}>
+                  <TextRegular>Выйти из аккаунта</TextRegular>
+               </Button>
             </TouchableOpacity>
          </ScrollView>
       </View>
@@ -69,8 +72,8 @@ const styles = StyleSheet.create({
    },
 
    addImage: {
-      color: '#fff',
-      paddingTop: 10
+      paddingTop: 10,
+      fontSize: 14
    },
 
    textFullname: {
@@ -81,8 +84,8 @@ const styles = StyleSheet.create({
 
    email: {
       opacity: 0.5,
-      color: '#FFF',
-      paddingTop: 10
+      paddingTop: 10,
+      fontSize: 14
    },
 
    info: {
@@ -98,7 +101,6 @@ const styles = StyleSheet.create({
 
    infoText: {
       fontSize: 16,
-      color: '#FFF'
    },
 
    infoColumn: {

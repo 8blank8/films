@@ -1,11 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet } from 'react-native';
+import { TextRegular } from './Text';
 
 export const ModalSelectButton = (props) => {
    return (
       <View style={styles.wrapper}>
-         <Text style={styles.text}>{props.text}</Text>
+         <TextRegular style={styles.text}>{props.text}</TextRegular>
          <View style={props.notLine ? { display: 'none' } : styles.line}></View>
       </View>
    )
@@ -17,8 +18,6 @@ const styles = StyleSheet.create({
    },
 
    text: {
-      fontSize: 16,
-      color: '#fff',
       paddingVertical: 10
    },
 

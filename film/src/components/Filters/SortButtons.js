@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { Button } from '../../ui/Button';
 import { ButtonsModal } from '../../ui/ButtonsModal';
+import { TextRegular } from '../../ui/Text';
 
 export const SortButtons = () => {
 
@@ -15,7 +16,9 @@ export const SortButtons = () => {
    const contentButtonSort = sortArr.map((item, i) => {
       return (
          <TouchableOpacity key={i} style={styles.button} onPress={() => setSort(item)}>
-            <Button active={sort === item ? true : false} style={styles.buttonModal}>{item}</Button>
+            <Button active={sort === item ? true : false} style={styles.buttonModal}>
+               <TextRegular style={styles.text}>{item}</TextRegular>
+            </Button>
          </TouchableOpacity>
       )
    })
@@ -34,5 +37,8 @@ const styles = StyleSheet.create({
    button: {
       width: '100%',
       maxWidth: 103
+   },
+   text: {
+      fontSize: 14
    }
 })

@@ -4,14 +4,16 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'rea
 import { useState } from 'react';
 
 import { ModalAddFilm } from '../components/FIlmPage/Modal/ModalAddFilm';
+import { FilmList } from '../ui/FilmList';
+import { FilmItem } from '../components/FilmItem';
+import { ActorItem } from '../components/ActorItem';
 
 import arrowImage from '../assets/arrow.png';
 import filmImage from '../assets/filmImage.png';
 import trillerImage from '../assets/triller.png';
-import actorImage from '../assets/actor.png';
-import similarImage from '../assets/similar.png';
 
 import { Button } from '../ui/Button';
+import { TextSemiBold, TextMedium, TextRegular } from '../ui/Text';
 import { THEME } from '../theme/theme';
 
 export const FilmScreen = ({ navigation }) => {
@@ -30,94 +32,57 @@ export const FilmScreen = ({ navigation }) => {
                   <Image source={arrowImage} />
                </TouchableOpacity>
                <TouchableOpacity onPress={() => toggleModal()}>
-                  <Text style={styles.textAdd}>Добавить в моё</Text>
+                  <TextSemiBold>Добавить в моё</TextSemiBold>
                </TouchableOpacity>
             </View>
             <Image source={filmImage} style={styles.filmImage} />
             <View style={styles.titleWrapper}>
-               <Text style={styles.titleText}>Дом дракона</Text>
-               <Text style={styles.titleText}>8.4</Text>
+               <TextSemiBold style={styles.titleText}>Дом дракона</TextSemiBold>
+               <TextSemiBold style={styles.titleText}>8.4</TextSemiBold>
             </View>
             <View style={styles.genreWrapper}>
-               <Text style={styles.textGenre}>фэнтези, боевик, драма, мелодрама</Text>
-               <Text style={styles.textGenre}>2022</Text>
+               <TextMedium style={styles.textGenre}>фэнтези, боевик, драма, мелодрама</TextMedium>
+               <TextMedium style={styles.textGenre}>2022</TextMedium>
             </View>
             <View style={styles.descriptionWrapper}>
-               <Text style={styles.textDesc}>
+               <TextRegular>
                   Члены дома Таргариенов оставляют обреченную Валирию и отправляются на ...
-               </Text>
+               </TextRegular>
                <TouchableOpacity>
-                  <Text style={styles.descOption}>развернуть описание</Text>
+                  <TextRegular style={styles.descOption}>развернуть описание</TextRegular>
                </TouchableOpacity>
             </View>
             <View style={styles.wrapperTriller}>
                <Image style={styles.trillerImage} source={trillerImage} />
                <TouchableOpacity style={styles.trillerButtonWrapper}>
-                  <Button style={styles.trillerButton}>Трейлер</Button>
+                  <Button style={styles.trillerButton}>
+                     <TextRegular style={styles.textTrailer}>Трейлер</TextRegular>
+                  </Button>
                </TouchableOpacity>
             </View>
             <View style={styles.wrapperItems}>
-               <Text style={styles.title}>Актерский состав</Text>
+               <TextRegular>Актерский состав</TextRegular>
                <View style={styles.wraperItem}>
-                  <View style={styles.actorItem}>
-                     <Image style={styles.actorImage} source={actorImage} />
-                     <Text style={styles.actorName}>Пэдди Консидайн</Text>
-                  </View>
-                  <View style={styles.actorItem}>
-                     <Image style={styles.actorImage} source={actorImage} />
-                     <Text style={styles.actorName}>Пэдди Консидайн</Text>
-                  </View>
-                  <View style={styles.actorItem}>
-                     <Image style={styles.actorImage} source={actorImage} />
-                     <Text style={styles.actorName}>Пэдди Консидайн</Text>
-                  </View>
-                  <View style={styles.actorItem}>
-                     <Image style={styles.actorImage} source={actorImage} />
-                     <Text style={styles.actorName}>Пэдди Консидайн</Text>
-                  </View>
-                  <View style={styles.actorItem}>
-                     <Image style={styles.actorImage} source={actorImage} />
-                     <Text style={styles.actorName}>Пэдди Консидайн</Text>
-                  </View>
+                  <ActorItem />
+                  <ActorItem />
+                  <ActorItem />
+                  <ActorItem />
+                  <ActorItem />
+                  <ActorItem />
                </View>
                <TouchableOpacity >
-                  <Text style={styles.actorButton}>смотреть всех </Text>
+                  <TextRegular style={styles.actorButton}>смотреть всех </TextRegular>
                </TouchableOpacity>
             </View>
             <View style={styles.wrapperItems}>
-               <Text style={styles.title}>Похожее</Text>
-               <View style={styles.wraperItem}>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-                  <View style={styles.wrapperSimilarItem}>
-                     <Image style={styles.similarImage} source={similarImage} />
-                     <Text style={styles.similarTitle}>Рик и морти</Text>
-                     <Text style={styles.similarGenre}>комедия</Text>
-                  </View>
-               </View>
+               <TextRegular>Похожее</TextRegular>
+               <FilmList>
+                  <FilmItem />
+                  <FilmItem />
+                  <FilmItem />
+                  <FilmItem />
+                  <FilmItem />
+               </FilmList>
             </View>
          </ScrollView>
          <ModalAddFilm visibleModal={visibleModal} />
@@ -143,11 +108,6 @@ const styles = StyleSheet.create({
       width: '100%'
    },
 
-   textAdd: {
-      color: '#FFF',
-      fontSize: 16
-   },
-
    filmImage: {
       width: '100%',
       height: 510
@@ -171,7 +131,8 @@ const styles = StyleSheet.create({
    },
 
    textGenre: {
-      color: 'rgba(255, 255, 255, 0.5)'
+      opacity: 0.5,
+      fontSize: 14
    },
 
    descriptionWrapper: {
@@ -179,15 +140,10 @@ const styles = StyleSheet.create({
       paddingTop: 30
    },
 
-   textDesc: {
-      color: '#fff',
-      fontSize: 16
-   },
-
    descOption: {
       paddingTop: 5,
-      color: 'rgba(255, 255, 255, 0.5)',
-      fontSize: 13
+      fontSize: 13,
+      opacity: 0.5
    },
 
    wrapperTriller: {
@@ -219,36 +175,11 @@ const styles = StyleSheet.create({
       marginTop: 30
    },
 
-   title: {
-      color: '#fff',
-      fontSize: 16
-   },
-
    wraperItem: {
       paddingTop: 20,
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent: 'space-between'
-   },
-
-   actorItem: {
-      flexDirection: 'row',
-      maxWidth: 165,
-      width: '100%',
-      marginBottom: 10,
-      borderRadius: 20
-   },
-
-   actorName: {
-      color: '#fff',
-      maxWidth: 95,
-      marginTop: 20,
-      marginLeft: 10
-   },
-
-   actorButton: {
-      color: 'rgba(255, 255, 255, 0.5)',
-      fontSize: 13
    },
 
    wrapperSimilarItem: {
@@ -272,6 +203,10 @@ const styles = StyleSheet.create({
 
    similarGenre: {
       color: 'rgba(255, 255, 255, 0.5)'
+   },
+
+   textTrailer: {
+      fontSize: 14
    }
 
 

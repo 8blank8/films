@@ -1,14 +1,15 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet } from 'react-native';
+import { TextMedium } from './Text';
 
 export const Select = (props) => {
    return (
       <View style={{ ...styles.wrapper, ...props.style }}>
          <View style={styles.line}></View>
          <View style={styles.wrapperText}>
-            <Text style={styles.textTitle}>{props.title}</Text>
-            <Text style={styles.text}>{props.text}</Text>
+            <TextMedium>{props.title}</TextMedium>
+            <TextMedium style={styles.text}>{props.text}</TextMedium>
          </View>
          <View style={styles.line}></View>
       </View>
@@ -33,13 +34,8 @@ const styles = StyleSheet.create({
       paddingVertical: 10
    },
 
-   textTitle: {
-      fontSize: 16,
-      color: '#FFF'
-   },
 
    text: {
-      fontSize: 16,
-      color: 'rgba(255, 255, 255, 0.5)'
+      opacity: 0.5
    }
 })

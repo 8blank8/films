@@ -3,6 +3,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import imageFilm from '../assets/imageFilm.png';
+import { TextMedium } from '../ui/Text';
 
 
 export const FilmItem = ({ navigation }) => {
@@ -10,8 +11,8 @@ export const FilmItem = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('filmScreen')}>
          <View style={styles.film}>
             <Image source={imageFilm} style={styles.filmImage} />
-            <Text style={styles.filmTitle}>Дом дракона</Text>
-            <Text style={styles.filmGenre}>фэнтези</Text>
+            <TextMedium style={styles.filmTitle}>Дом дракона</TextMedium>
+            <TextMedium style={styles.filmGenre}>фэнтези</TextMedium>
          </View>
       </TouchableOpacity>
    )
@@ -29,12 +30,12 @@ const styles = StyleSheet.create({
    },
 
    filmTitle: {
-      color: '#FFF',
       fontSize: 16,
       paddingTop: 5
    },
 
    filmGenre: {
-      color: 'rgba(255, 255, 255, 0.5)'
+      fontSize: 14,
+      opacity: 0.5
    }
 })

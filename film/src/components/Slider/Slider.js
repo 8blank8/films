@@ -5,6 +5,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 import { useState } from 'react';
 import { THEME } from '../../theme/theme';
+import { TextMedium } from '../../ui/Text';
 
 export const Slider = ({ text, minNum, maxNum }) => {
 
@@ -14,8 +15,8 @@ export const Slider = ({ text, minNum, maxNum }) => {
    return (
       <View style={styles.wrapper}>
          <View style={styles.wrapperText}>
-            <Text style={styles.text}>{text}</Text>
-            <Text style={styles.textSelect}>от {minValue} до {maxValue}</Text>
+            <TextMedium>{text}</TextMedium>
+            <TextMedium style={styles.textSelect}>от {minValue} до {maxValue}</TextMedium>
          </View>
          <View style={styles.wrapperSlider}>
             <MultiSlider
@@ -46,13 +47,8 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
    },
 
-   text: {
-      color: '#fff',
-      fontSize: 16
-   },
-
    textSelect: {
-      color: 'rgba(255, 255, 255, 0.5)'
+      opacity: 0.5
    },
 
    wrapperSlider: {

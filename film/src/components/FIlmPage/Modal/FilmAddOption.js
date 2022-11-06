@@ -1,12 +1,13 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
 import { THEME } from '../../../theme/theme';
 
 import { Button } from '../../../ui/Button';
 import { Input } from '../../../ui/Input';
+import { TextRegular } from '../../../ui/Text';
 
 
 export const FilmAddOption = () => {
@@ -25,7 +26,7 @@ export const FilmAddOption = () => {
             <Button
                active
                style={item === category ? { ...styles.button, ...styles.buttonActive } : styles.button}>
-               <Text>{item}</Text>
+               <TextRegular>{item}</TextRegular>
             </Button>
          </TouchableOpacity>
       )
@@ -37,7 +38,7 @@ export const FilmAddOption = () => {
             {categoryButtons}
          </View>
          <View style={styles.wrapperButtons}>
-            <Text style={styles.text}>Добавить оценку</Text>
+            <TextRegular>Добавить оценку</TextRegular>
             <Input style={styles.inputGrade} />
          </View>
       </View>

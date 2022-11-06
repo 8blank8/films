@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { Button } from '../../ui/Button';
 import { ButtonsModal } from '../../ui/ButtonsModal';
+import { TextRegular } from '../../ui/Text';
 
 export const CategoryButtons = ({ style }) => {
 
@@ -16,7 +17,9 @@ export const CategoryButtons = ({ style }) => {
    const contentButtonCategory = categoryArr.map((item, i) => {
       return (
          <TouchableOpacity key={i} style={{ ...styles.button, ...style }} onPress={() => setCategory(item)}>
-            <Button active={category === item ? true : false} style={styles.buttonModal}>{item}</Button>
+            <Button active={category === item ? true : false} style={styles.buttonModal}>
+               <TextRegular style={styles.text}>{item}</TextRegular>
+            </Button>
          </TouchableOpacity>
       )
    })
@@ -35,5 +38,9 @@ const styles = StyleSheet.create({
    button: {
       width: '100%',
       maxWidth: 103
+   },
+
+   text: {
+      fontSize: 14
    }
 })

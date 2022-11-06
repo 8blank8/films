@@ -4,6 +4,7 @@ import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from "react-nati
 import Modal from 'react-native-modal';
 
 import { Button } from "../ui/Button";
+import { TextMedium, TextSemiBold } from "../ui/Text";
 
 import { THEME } from "../theme/theme";
 import { useState } from "react";
@@ -44,26 +45,26 @@ export const ModalFilterFilms = ({ visibleModal, toggleModal, isMyFilms }) => {
                   <Slider minNum={1} maxNum={8} text='Рейтинг' />
                </View>
                <View>
-                  <Text style={styles.text}>Сортировать по</Text>
+                  <TextMedium style={styles.text}>Сортировать по</TextMedium>
                   <SortButtons />
                </View>
                {isMyFilms &&
                   <View style={styles.wrapperUserFilter}>
-                     <Text style={styles.textTitle}>Сортировка по пользвательским настройкам</Text>
+                     <TextSemiBold style={styles.textTitle}>Сортировка по пользвательским настройкам</TextSemiBold>
                      <CategoryButtons />
                      <SelectedButtons />
                      <View>
                         <Slider minNum={1} maxNum={8} text='Рейтинг' />
                      </View>
                      <View>
-                        <Text style={styles.text}>Сортировать по</Text>
+                        <TextMedium style={styles.text}>Сортировать по</TextMedium>
                         <SortButtons />
                      </View>
                   </View>}
                <View style={styles.buttonSelectedWrapper}>
                   <TouchableOpacity style={styles.touchebleOpacity}>
                      <Button style={styles.buttonSelected}>
-                        <Text stylText={{ fontSize: 16 }}>Применить фильтры</Text>
+                        <TextMedium>Применить фильтры</TextMedium>
                      </Button>
                   </TouchableOpacity>
                </View>
@@ -91,8 +92,6 @@ const styles = StyleSheet.create({
    },
 
    text: {
-      fontSize: 16,
-      color: '#fff',
       marginBottom: 15,
       marginTop: 20
    },
@@ -120,8 +119,7 @@ const styles = StyleSheet.create({
    },
 
    textTitle: {
-      fontSize: 16,
-      color: '#fff',
+      fontSize: 14,
       paddingBottom: 40
    },
 })

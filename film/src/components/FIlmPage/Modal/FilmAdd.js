@@ -4,25 +4,26 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import { Button } from '../../../ui/Button';
 import { THEME } from '../../../theme/theme';
+import { TextRegular, TextMedium } from '../../../ui/Text';
 
 export const FilmAdd = ({ onSetFilmAdd }) => {
    return (
       <View style={styles.filmAdd}>
-         <Text style={styles.text}>
+         <TextRegular style={styles.text}>
             Добавить “Дом дракона” в
-         </Text>
+         </TextRegular>
          <TouchableOpacity
             style={styles.wrapperButton}
             onPress={() => onSetFilmAdd('Посмотреть')}>
             <Button style={styles.button}>
-               <Text>Посмотреть</Text>
+               <TextMedium>Посмотреть</TextMedium>
             </Button>
          </TouchableOpacity>
          <TouchableOpacity
             style={styles.wrapperButton}
             onPress={() => onSetFilmAdd('Просмотренное')}>
             <Button style={styles.button}>
-               <Text>Просмотренное</Text>
+               <TextMedium>Просмотренное</TextMedium>
             </Button>
          </TouchableOpacity>
       </View>
@@ -43,8 +44,6 @@ const styles = StyleSheet.create({
    },
 
    text: {
-      color: '#fff',
-      fontSize: 16,
       paddingBottom: 10
    },
 
