@@ -13,26 +13,48 @@ export const SelectedButtons = () => {
    const [visibleModalGenre, setVisibleModalGenre] = useState(false);
    const [visibleModalCountry, setVisibleModalCountry] = useState(false);
 
-   const [genre, setGenre] = useState('любые');
-   const [country, setCountry] = useState('любые');
+   const [genre, setGenre] = useState(['любые']);
+   const [country, setCountry] = useState(['любые']);
 
    const genresArr = ['любые', 'комедии', 'ужасы', 'драмы'];
    const countryArr = ['любые', 'США', 'Россия', 'Ирландия', 'Великобритания'];
 
-   const closeVisibleModal = (setVisibleModal) => {
-      setVisibleModal(false);
+   const setActiveSelect = (text, activeSort, setText, setVisibleModal,) => {
+
+      const index = activeSort.indexOf(text);
+
+      if (index === -1) {
+         setText([...activeSort, text]);
+      }
+
+      if (index > -1) {
+         const newArr = [];
+         activeSort.map((item, i) => {
+            if (i !== index) {
+               newArr.push(item);
+            }
+         })
+
+         return setText(newArr);
+      }
    }
 
-   const setActiveSelect = (text, setText, setVisibleModal, dispatch) => {
-      setText(text);
-      closeVisibleModal(setVisibleModal);
-   }
 
-   const setDataModal = (arr, setText, setVisibleModal, dispatch) => {
+
+
+   const setDataModal = (arr, activeSort, setText, setVisibleModal, dispatch) => {
       const newArr = arr.map((item, i) => {
+
          return (
-            <TouchableOpacity key={i} onPress={() => setActiveSelect(item, setText, setVisibleModal)} >
-               <ModalSelectButton text={item} notLine={i + 1 === arr.length ? true : false} />
+            <TouchableOpacity
+               key={i}
+               onPress={() => {
+                  setActiveSelect(item, activeSort, setText, setVisibleModal);
+               }} >
+               <ModalSelectButton
+                  active={activeSort.indexOf(item) === -1 ? false : true}
+                  text={item}
+                  notLine={i + 1 === arr.length ? true : false} />
             </TouchableOpacity>
          )
       })
@@ -40,8 +62,8 @@ export const SelectedButtons = () => {
       return newArr;
    }
 
-   const modalGenre = setDataModal(genresArr, setGenre, setVisibleModalGenre);
-   const modalCountry = setDataModal(countryArr, setCountry, setVisibleModalCountry);
+   const modalGenre = setDataModal(genresArr, genre, setGenre, setVisibleModalGenre);
+   const modalCountry = setDataModal(countryArr, country, setCountry, setVisibleModalCountry);
 
    return (
       <View style={styles.wrapper}>

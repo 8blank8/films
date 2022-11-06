@@ -4,12 +4,21 @@ import { View, Text, StyleSheet } from 'react-native';
 import { TextMedium } from './Text';
 
 export const Select = (props) => {
+
+   const text = props.text.map((item, i) => {
+      if (props.text.length !== i + 1) {
+         return `${item}, `;
+      } else {
+         return item;
+      }
+   })
+
    return (
       <View style={{ ...styles.wrapper, ...props.style }}>
          <View style={styles.line}></View>
          <View style={styles.wrapperText}>
             <TextMedium>{props.title}</TextMedium>
-            <TextMedium style={styles.text}>{props.text}</TextMedium>
+            <TextMedium style={styles.text}>{text}</TextMedium>
          </View>
          <View style={styles.line}></View>
       </View>

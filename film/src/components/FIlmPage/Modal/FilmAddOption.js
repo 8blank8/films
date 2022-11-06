@@ -1,7 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { useState } from 'react';
+
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 import { THEME } from '../../../theme/theme';
 
@@ -13,6 +15,7 @@ import { TextRegular } from '../../../ui/Text';
 export const FilmAddOption = () => {
 
    const [category, setCategory] = useState('Сериал');
+   const [grade, setGrade] = useState(0);
 
    const categoryArr = ['Сериал', 'Фильм'];
 
@@ -37,9 +40,23 @@ export const FilmAddOption = () => {
          <View style={styles.wrapperButtons}>
             {categoryButtons}
          </View>
-         <View style={styles.wrapperButtons}>
+         <View >
             <TextRegular>Добавить оценку</TextRegular>
-            <Input style={styles.inputGrade} />
+            <View style={styles.wrapperGrade}>
+               <TextRegular style={styles.grade}>0</TextRegular>
+               <TextRegular style={styles.gradeActive}>{grade}</TextRegular>
+               <TextRegular style={styles.grade}>10</TextRegular>
+            </View>
+            <MultiSlider
+               min={0}
+               max={10}
+               values={[grade]}
+               sliderLength={Dimensions.get('window').width - 80}
+               trackStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+               selectedStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+               markerStyle={{ backgroundColor: THEME.MAIN_COLOR }}
+               onValuesChange={(values) => setGrade(values[0])}
+            />
          </View>
       </View>
    )
@@ -77,5 +94,22 @@ const styles = StyleSheet.create({
    text: {
       color: '#fff',
       fontSize: 16
+   },
+
+   wrapperGrade: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 20,
+      marginBottom: -10,
+      alignItems: 'center'
+   },
+
+   grade: {
+      fontSize: 15,
+      opacity: 0.5
+   },
+
+   gradeActive: {
+      fontSize: 26
    }
 })
