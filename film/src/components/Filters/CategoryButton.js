@@ -12,25 +12,10 @@ export const CategoryButtons = ({ style }) => {
 
    const categoryArr = ['Все', 'Фильмы', 'Сериалы'];
 
-   const setAtiveButton = (text) => {
-      switch (text) {
-         case 'Все':
-            return true;
-         case 'Фильмы':
-            return true;
-         case 'Сериалы':
-            return true;
-         default:
-            return false;
-      }
-   }
 
    const contentButtonCategory = categoryArr.map((item, i) => {
       return (
-         <TouchableOpacity key={i} style={{ ...styles.button, ...style }} onPress={() => {
-            setCategory(item);
-            setAtiveButton(category);
-         }}>
+         <TouchableOpacity key={i} style={{ ...styles.button, ...style }} onPress={() => setCategory(item)}>
             <Button active={category === item ? true : false} style={styles.buttonModal}>{item}</Button>
          </TouchableOpacity>
       )

@@ -12,25 +12,9 @@ export const SortButtons = () => {
 
    const sortArr = ['Рейтингу', 'Дате', 'Алфавиту'];
 
-   const setActiveButtonSort = (text) => {
-      switch (text) {
-         case 'Рейтингу':
-            return true;
-         case 'Дате':
-            return true;
-         case 'Алфавиту':
-            return true;
-         default:
-            return false;
-      }
-   }
-
    const contentButtonSort = sortArr.map((item, i) => {
       return (
-         <TouchableOpacity key={i} style={styles.button} onPress={() => {
-            setSort(item);
-            setActiveButtonSort(sort);
-         }}>
+         <TouchableOpacity key={i} style={styles.button} onPress={() => setSort(item)}>
             <Button active={sort === item ? true : false} style={styles.buttonModal}>{item}</Button>
          </TouchableOpacity>
       )

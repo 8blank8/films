@@ -1,6 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useState } from 'react';
+
+import { ModalAddFilm } from '../components/FIlmPage/Modal/ModalAddFilm';
 
 import arrowImage from '../assets/arrow.png';
 import filmImage from '../assets/filmImage.png';
@@ -12,6 +15,13 @@ import { Button } from '../ui/Button';
 import { THEME } from '../theme/theme';
 
 export const FilmScreen = ({ navigation }) => {
+
+   const [visibleModal, setVisibleModal] = useState(false);
+
+   const toggleModal = () => {
+      setVisibleModal(!visibleModal);
+   }
+
    return (
       <View style={styles.wrapper}>
          <ScrollView>
@@ -19,7 +29,7 @@ export const FilmScreen = ({ navigation }) => {
                <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Image source={arrowImage} />
                </TouchableOpacity>
-               <TouchableOpacity>
+               <TouchableOpacity onPress={() => toggleModal()}>
                   <Text style={styles.textAdd}>Добавить в моё</Text>
                </TouchableOpacity>
             </View>
@@ -110,6 +120,7 @@ export const FilmScreen = ({ navigation }) => {
                </View>
             </View>
          </ScrollView>
+         <ModalAddFilm visibleModal={visibleModal} />
       </View>
    )
 }
