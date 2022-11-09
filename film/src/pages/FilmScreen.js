@@ -20,10 +20,6 @@ export const FilmScreen = ({ navigation }) => {
 
    const [visibleModal, setVisibleModal] = useState(false);
 
-   const toggleModal = () => {
-      setVisibleModal(!visibleModal);
-   }
-
    return (
       <View style={styles.wrapper}>
          <ScrollView>
@@ -31,7 +27,7 @@ export const FilmScreen = ({ navigation }) => {
                <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Image source={arrowImage} />
                </TouchableOpacity>
-               <TouchableOpacity onPress={() => toggleModal()}>
+               <TouchableOpacity onPress={() => setVisibleModal(true)}>
                   <TextSemiBold>Добавить в моё</TextSemiBold>
                </TouchableOpacity>
             </View>
@@ -85,7 +81,7 @@ export const FilmScreen = ({ navigation }) => {
                </FilmList>
             </View>
          </ScrollView>
-         <ModalAddFilm visibleModal={visibleModal} />
+         <ModalAddFilm visibleModal={visibleModal} setVisibleModal={setVisibleModal} />
       </View>
    )
 }

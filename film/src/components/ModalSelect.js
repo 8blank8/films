@@ -8,8 +8,10 @@ import { THEME } from '../theme/theme';
 export const ModalSelect = ({ setVisibleModal, visibleModal, content }) => {
    return (
       <Modal isVisible={visibleModal}
-         swipeDirection='down'
-         onSwipeComplete={() => setVisibleModal(false)}>
+         swipeDirection={'down'}
+         onSwipeComplete={() => setVisibleModal(false)}
+         style={styles.modal}
+      >
          <View style={styles.modalSelect}>
             {content}
          </View>
@@ -25,5 +27,9 @@ const styles = StyleSheet.create({
       width: '100%',
       borderRadius: 20,
       paddingVertical: 20
+   },
+
+   modal: {
+      alignItems: 'center',
    }
 })

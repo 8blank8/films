@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
    },
 
    text: {
-      paddingVertical: 10
+      paddingVertical: 10,
    },
 
    line: {

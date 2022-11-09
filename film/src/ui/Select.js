@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { TextMedium } from './Text';
 
 export const Select = (props) => {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
       height: 1,
       maxWidth: 350,
       width: '100%',
-      backgroundColor: 'rgba(255, 255,255, 0.2)'
+      backgroundColor: 'rgba(255, 255,255, 0.2)',
    },
 
    wrapperText: {

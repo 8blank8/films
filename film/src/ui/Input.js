@@ -4,7 +4,12 @@ import { THEME } from "../theme/theme";
 
 export const Input = (props) => {
    return (
-      <TextInput placeholderTextColor={'rgba(255, 255, 255, 0.2)'} placeholder={props.placeholder} style={{ ...styles.input, ...props.style }} />
+      <TextInput
+         placeholderTextColor={'rgba(255, 255, 255, 0.2)'}
+         placeholder={props.placeholder}
+         style={{ ...styles.input, ...props.style }}
+         multiline={props.multiline ? true : false}
+         numberOfLines={props.numberOfLines ? props.numberOfLines : null} />
    )
 }
 
