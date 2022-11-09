@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { THEME } from '../theme/theme';
 import { BoxShadow } from 'react-native-shadow';
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
    },
    content: {
       backgroundColor: 'rgba(32, 32, 32, 0.6)',
-      width: '100%',
+      width: Dimensions.get('window').width * 89.7,
       maxWidth: 350,
       minHeight: 369,
       borderRadius: 20,

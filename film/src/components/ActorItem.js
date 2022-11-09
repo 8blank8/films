@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import { TextRegular } from '../ui/Text';
 
 import actorImage from '../assets/actor.png';
@@ -18,7 +18,7 @@ export const ActorItem = (props) => {
 const styles = StyleSheet.create({
    actorItem: {
       flexDirection: 'row',
-      width: '42.3%',
+      width: Dimensions.get('window').width * 0.42,
       marginBottom: 10,
       borderRadius: 20
    },

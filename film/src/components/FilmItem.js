@@ -20,26 +20,24 @@ export const FilmItem = ({ navigation }) => {
 
 const styles = StyleSheet.create({
    film: {
-      width: '42.3%',
+      maxWidth: Dimensions.get('window').width * 0.42,
+      width: '100%',
       maxHeight: 259,
       marginBottom: 20
    },
 
    filmImage: {
-      borderRadius: 20
+      borderRadius: 20,
+      width: Dimensions.get('window').width * 0.42,
    },
 
    filmTitle: {
       fontSize: 16,
       paddingTop: 5,
-      width: '230%',
-
-
    },
 
    filmGenre: {
       fontSize: 14,
       opacity: 0.5,
-      width: '230%',
    }
 })
