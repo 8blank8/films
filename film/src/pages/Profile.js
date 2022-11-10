@@ -17,7 +17,9 @@ export const Profile = () => {
          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapperColumn}>
                <Image style={styles.image} resizeMode='stretch' source={account} />
-               <TextMedium style={styles.addImage}>Добавить новое фото</TextMedium>
+               <TouchableOpacity>
+                  <TextMedium style={styles.addImage}>Добавить новое фото</TextMedium>
+               </TouchableOpacity>
                <TextSemiBold style={styles.textFullname}>Селиванова Анастасия</TextSemiBold>
                <TextRegular style={styles.email}>echelontwoles@mail.ru</TextRegular>
             </View>
@@ -92,6 +94,7 @@ const styles = StyleSheet.create({
       minHeight: 293,
       maxWidth: 350,
       backgroundColor: 'rgba(32, 32, 32, 1)',
+      marginHorizontal: 20,
    },
 
    infoNumber: {

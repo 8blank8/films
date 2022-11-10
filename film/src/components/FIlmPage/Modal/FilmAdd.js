@@ -15,7 +15,8 @@ export const FilmAdd = ({ visibleModal, setVisibleModal, onSetFilmAdd, setVisibl
          onSwipeComplete={() => setVisibleModal(false)}
          style={styles.modal}
          animationOut='slideOutUp'
-         animationOutTiming={800}
+         animationOutTiming={2500}
+         animationInTiming={800}
       >
          <View style={styles.filmAdd}>
             <TextRegular style={styles.text}>

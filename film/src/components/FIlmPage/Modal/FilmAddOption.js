@@ -93,7 +93,7 @@ export const FilmAddOption = ({ visibleModal, setVisibleModalOption }) => {
             swipeDirection={'down'}
             onSwipeComplete={() => setVisibleModalOption(false)}
             style={styles.modal}
-            animationInTiming={800}
+            animationInTiming={1000}
          >
             <View style={styles.wrapper}>
                <View style={styles.wrapperButtons}>
@@ -110,7 +110,7 @@ export const FilmAddOption = ({ visibleModal, setVisibleModalOption }) => {
                      min={0}
                      max={10}
                      values={[grade]}
-                     sliderLength={Dimensions.get('window').width - 105}
+                     sliderLength={310}
                      trackStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
                      selectedStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
                      markerStyle={{ backgroundColor: THEME.MAIN_COLOR }}
@@ -199,11 +199,12 @@ const styles = StyleSheet.create({
    },
 
    input: {
-      maxWidth: 309,
+      maxWidth: 310,
       height: 90,
       marginTop: 15,
       paddingBottom: 10,
-      paddingRight: 20
+      paddingRight: 20,
+      textAlignVertical: 'top'
    },
 
    title: {

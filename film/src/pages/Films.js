@@ -39,8 +39,6 @@ export const Films = ({ navigation }) => {
 
 const styles = StyleSheet.create({
    wrapper: {
-      backgroundColor: THEME.BACKGROUND_COLOR,
-      flexDirection: 'column',
       flex: 1,
       paddingTop: THEME.WRAPPER_PADDING_TOP,
       paddingHorizontal: THEME.WRAPPER_PADDING_HORIZONTAL

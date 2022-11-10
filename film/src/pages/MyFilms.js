@@ -27,6 +27,7 @@ export const MyFilms = () => {
             <FilmItem />
             <FilmItem />
             <FilmItem />
+            <FilmItem />
          </FilmList>
          <ModalFilterFilms visibleModal={visibleModal} toggleModal={toggleModal} isMyFilms />
       </View>
@@ -36,6 +37,7 @@ export const MyFilms = () => {
 const styles = StyleSheet.create({
    wrapper: {
       paddingHorizontal: THEME.WRAPPER_PADDING_HORIZONTAL,
-      paddingTop: THEME.WRAPPER_PADDING_TOP
+      paddingTop: THEME.WRAPPER_PADDING_TOP,
+      flex: 1
    }
 })
