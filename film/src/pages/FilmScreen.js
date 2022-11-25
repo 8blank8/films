@@ -7,6 +7,7 @@ import { ModalAddFilm } from '../components/FIlmPage/Modal/ModalAddFilm';
 import { FilmList } from '../ui/FilmList';
 import { FilmItem } from '../components/FilmItem';
 import { ActorItem } from '../components/ActorItem';
+import { VideoPlayer } from '../components/Video';
 
 import arrowImage from '../assets/arrow.png';
 import filmImage from '../assets/filmImage.png';
@@ -19,6 +20,7 @@ import { THEME } from '../theme/theme';
 export const FilmScreen = ({ navigation }) => {
 
    const [visibleModal, setVisibleModal] = useState(false);
+   const [playVideo, setPlayVideo] = useState(false);
 
    return (
       <View style={styles.wrapper}>
@@ -55,7 +57,14 @@ export const FilmScreen = ({ navigation }) => {
                      <TextRegular style={styles.textTrailer}>Трейлер</TextRegular>
                   </Button>
                </TouchableOpacity>
+               <TouchableOpacity style={styles.trillerButtonWrapperTwo}
+                  onPress={() => setPlayVideo(true)}>
+                  <Button style={styles.trillerButton}>
+                     <TextRegular style={styles.textTrailer}>Смотреть</TextRegular>
+                  </Button>
+               </TouchableOpacity>
             </View>
+            {playVideo && <VideoPlayer />}
             <View style={styles.wrapperItems}>
                <TextRegular>Актерский состав</TextRegular>
                <View style={styles.wraperItem}>
@@ -157,6 +166,13 @@ const styles = StyleSheet.create({
       position: 'absolute',
       bottom: 10,
       left: 30,
+      width: '100%',
+   },
+
+   trillerButtonWrapperTwo: {
+      position: 'absolute',
+      bottom: 10,
+      left: 260,
       width: '100%',
    },
 
