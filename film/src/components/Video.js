@@ -26,6 +26,7 @@ export const VideoPlay = ({ visible, setVisible }) => {
                   uri: 'https://dl5.vibio.tv/53052552da886fc240dec7ce7f8fe2a0/2940/2940858/output.lq.mp4'
                }}
                disableVolume
+            // toggleResizeModeOnFullscreen={false}
             />
          </View>
       </Modal>
