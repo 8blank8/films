@@ -2,6 +2,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { View, Image } from 'react-native';
+import Orientation from 'react-native-orientation-locker';
 import { Provider } from 'react-redux';
 import IconFilm from 'react-native-vector-icons/SimpleLineIcons';
 import IconSearch from 'react-native-vector-icons/AntDesign';
@@ -20,6 +21,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { THEME } from './src/theme/theme';
+import { useEffect } from 'react';
 
 const FilmsStack = createStackNavigator();
 
@@ -35,6 +37,10 @@ const FilmsStackScreen = () => {
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+   useEffect(() => {
+      Orientation.lockToPortrait();
+   }, [])
 
    const MyTheme = {
       dark: false,

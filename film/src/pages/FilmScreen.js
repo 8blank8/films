@@ -7,7 +7,7 @@ import { ModalAddFilm } from '../components/FIlmPage/Modal/ModalAddFilm';
 import { FilmList } from '../ui/FilmList';
 import { FilmItem } from '../components/FilmItem';
 import { ActorItem } from '../components/ActorItem';
-import { VideoPlayer } from '../components/Video';
+import { VideoPlay } from '../components/Video';
 
 import arrowImage from '../assets/arrow.png';
 import filmImage from '../assets/filmImage.png';
@@ -64,7 +64,6 @@ export const FilmScreen = ({ navigation }) => {
                   </Button>
                </TouchableOpacity>
             </View>
-            {playVideo && <VideoPlayer />}
             <View style={styles.wrapperItems}>
                <TextRegular>Актерский состав</TextRegular>
                <View style={styles.wraperItem}>
@@ -91,6 +90,7 @@ export const FilmScreen = ({ navigation }) => {
             </View>
          </ScrollView>
          <ModalAddFilm visibleModal={visibleModal} setVisibleModal={setVisibleModal} />
+         <VideoPlay visible={playVideo} setVisible={setPlayVideo} />
       </View>
    )
 }

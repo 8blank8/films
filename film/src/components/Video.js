@@ -1,21 +1,34 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import Video from "react-native-video";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Dimensions, StatusBar } from "react-native";
+import VideoPlayer from "react-native-video-controls";
+import { OrientationLocker, PORTRAIT, LANDSCAPE } from "react-native-orientation-locker";
+import Modal from 'react-native-modal';
+import { useEffect } from "react";
 
-export const VideoPlayer = () => {
+export const VideoPlay = ({ visible, setVisible }) => {
+
+   useEffect(() => {
+      StatusBar.setHidden(true);
+   })
 
    return (
-      <Video
-         source={{
-            uri: 'https://dl5.vibio.tv/53052552da886fc240dec7ce7f8fe2a0/2940/2940858/output.lq.mp4'
-         }}
-         style={styles.video}
-         controls={true}
-         paused
-         poster={'https://img3.imgzona.video/images/film_240/7/7962.jpg'}
-         repeat={true}
-      />
+      <Modal
+         isVisible={visible}
+         style={styles.modal}
+      >
+         <OrientationLocker
+            orientation={visible ? LANDSCAPE : PORTRAIT}
+         />
+         <View style={styles.video}>
+            <VideoPlayer
+               source={{
+                  uri: 'https://dl5.vibio.tv/53052552da886fc240dec7ce7f8fe2a0/2940/2940858/output.lq.mp4'
+               }}
+               disableVolume
+            />
+         </View>
+      </Modal>
    )
 
 }
@@ -23,8 +36,13 @@ export const VideoPlayer = () => {
 const styles = StyleSheet.create({
    video: {
       width: '100%',
-      height: 200,
-      borderWidth: 2,
-      borderColor: '#fff'
+      height: '100%',
+      zIndex: 10
+   },
+   modal: {
+      height: Dimensions.get('window').height,
+      width: Dimensions.get('window').width,
+      marginVertical: 0,
+      marginHorizontal: 0
    }
 })
