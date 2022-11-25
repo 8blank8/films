@@ -1,13 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, ScrollView, StatusBar } from 'react-native';
 import { useState } from 'react';
 
 import { ModalAddFilm } from '../components/FIlmPage/Modal/ModalAddFilm';
 import { FilmList } from '../ui/FilmList';
 import { FilmItem } from '../components/FilmItem';
 import { ActorItem } from '../components/ActorItem';
-import { VideoPlay } from '../components/Video';
 
 import arrowImage from '../assets/arrow.png';
 import filmImage from '../assets/filmImage.png';
@@ -16,14 +15,15 @@ import trillerImage from '../assets/triller.png';
 import { Button } from '../ui/Button';
 import { TextSemiBold, TextMedium, TextRegular } from '../ui/Text';
 import { THEME } from '../theme/theme';
+import { OrientationLocker, PORTRAIT } from 'react-native-orientation-locker';
 
 export const FilmScreen = ({ navigation }) => {
 
    const [visibleModal, setVisibleModal] = useState(false);
-   const [playVideo, setPlayVideo] = useState(false);
 
    return (
       <View style={styles.wrapper}>
+         <OrientationLocker orientation={PORTRAIT} />
          <ScrollView>
             <View style={styles.buttonTop}>
                <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -58,7 +58,7 @@ export const FilmScreen = ({ navigation }) => {
                   </Button>
                </TouchableOpacity>
                <TouchableOpacity style={styles.trillerButtonWrapperTwo}
-                  onPress={() => setPlayVideo(true)}>
+                  onPress={() => navigation.navigate('video')}>
                   <Button style={styles.trillerButton}>
                      <TextRegular style={styles.textTrailer}>Смотреть</TextRegular>
                   </Button>
@@ -90,7 +90,6 @@ export const FilmScreen = ({ navigation }) => {
             </View>
          </ScrollView>
          <ModalAddFilm visibleModal={visibleModal} setVisibleModal={setVisibleModal} />
-         <VideoPlay visible={playVideo} setVisible={setPlayVideo} />
       </View>
    )
 }

@@ -1,7 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import { View, StyleSheet, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
-import Modal from 'react-native-modal';
 
 import { FilmItem } from '../components/FilmItem';
 import { ModalFilterFilms } from '../components/ModalFilterFilms';

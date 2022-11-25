@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from "react-native";
+import { View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import Modal from 'react-native-modal';
 
 import { Button } from "../ui/Button";
@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
    modal: {
       backgroundColor: THEME.BACKGROUND_COLOR,
       width: '100%',
+      // height: Dimensions.get('window').height,
+      marginVertical: 0,
       marginHorizontal: 0,
       paddingHorizontal: 20,
       marginBottom: 0

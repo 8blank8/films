@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 import Orientation from 'react-native-orientation-locker';
 import { Provider } from 'react-redux';
 import IconFilm from 'react-native-vector-icons/SimpleLineIcons';
@@ -16,6 +16,7 @@ import { Films } from './src/pages/Films';
 import { FilmScreen } from './src/pages/FilmScreen';
 import { SearchScreen } from './src/pages/SearchScreen';
 import { MyFilms } from './src/pages/MyFilms';
+import { VideoPlay } from './src/pages/ViewFilm';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -30,6 +31,7 @@ const FilmsStackScreen = () => {
       <FilmsStack.Navigator>
          <FilmsStack.Screen options={{ headerShown: false }} name='films' component={Films} />
          <FilmsStack.Screen options={{ headerShown: false }} name='filmScreen' component={FilmScreen} />
+         <FilmsStack.Screen options={{ headerShown: false, tabBarVisible: false }} name='video' component={VideoPlay} />
       </FilmsStack.Navigator>
    )
 }
@@ -40,7 +42,8 @@ const App = () => {
 
    useEffect(() => {
       Orientation.lockToPortrait();
-   }, [])
+      StatusBar.setHidden(true);
+   })
 
    const MyTheme = {
       dark: false,
